@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded',function() {
     const gameArea = document.querySelector('.gameArea');
     const car = document.createElement('div');
     const music = document.createElement('audio');
+    const inputDif = document.querySelectorAll('.diff');
+
+    
+    
+    
+
+
 
     car.classList.add('car');
 
@@ -26,6 +33,25 @@ document.addEventListener('DOMContentLoaded',function() {
         score : 0,
         traffic: 3
     };
+
+    inputDif.forEach(function(item) {
+
+        item.addEventListener('change', function(event) {
+            const target = event.target;
+            if(target.checked && target.id ==='easy') {
+                setting.speed = 6;
+                setting.traffic = 3;
+            } else if(target.checked && target.id ==='medium') {
+                setting.speed = 8;
+                setting.traffic = 2.4;
+                console.log(setting);
+            } else if(target.checked && target.id ==='hard') {
+                setting.speed = 11;
+                setting.traffic = 2;
+            }
+        });
+        
+    });
 
     function getElementQuantity(height) {
         return (document.documentElement.clientHeight / height );
